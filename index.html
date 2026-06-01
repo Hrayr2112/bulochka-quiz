@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .app {
@@ -32,22 +32,21 @@
     padding: 20px;
   }
 
-  /* ===== SCREENS ===== */
   .screen {
     display: none;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.4s ease;
   }
   .screen.active { display: flex; }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ===== WELCOME SCREEN ===== */
+  /* ===== WELCOME ===== */
   .welcome-subtitle {
     font-size: 11px;
     letter-spacing: 4px;
@@ -55,371 +54,162 @@
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-
-  .welcome-title {
-    text-align: center;
-    margin-bottom: 8px;
-  }
+  .welcome-title { text-align: center; margin-bottom: 8px; }
   .welcome-title .line1 {
-    font-size: 42px;
-    font-weight: 900;
-    color: #f59e0b;
-    display: block;
-    line-height: 1.1;
+    font-size: 42px; font-weight: 900; color: #f59e0b; display: block; line-height: 1.1;
   }
   .welcome-title .line2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #fff;
-    display: block;
-    line-height: 1.2;
+    font-size: 28px; font-weight: 700; color: #fff; display: block; line-height: 1.2;
   }
   .welcome-title .line3 {
-    font-size: 42px;
-    font-weight: 900;
-    color: #f59e0b;
-    display: block;
-    line-height: 1.1;
+    font-size: 42px; font-weight: 900; color: #f59e0b; display: block; line-height: 1.1;
   }
-
   .welcome-meta {
-    font-size: 13px;
-    color: #888;
-    margin: 16px 0 30px;
+    font-size: 13px; color: #888; margin: 16px 0 30px;
   }
-
   .prize-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-  }
-  .prize-card img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 12px;
+    background: #fff; border-radius: 16px; padding: 24px;
+    margin-bottom: 10px; display: flex; flex-direction: column;
+    align-items: center; width: 200px;
   }
   .prize-phone-placeholder {
-    width: 100px;
-    height: 140px;
+    width: 100px; height: 140px;
     background: linear-gradient(135deg, #f97316, #fb923c);
-    border-radius: 16px;
-    margin-bottom: 12px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 16px; margin-bottom: 12px; position: relative;
   }
   .prize-phone-placeholder::after {
-    content: '';
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    content: ''; width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(255,255,255,0.3); position: absolute;
+    top: 20px; left: 50%; transform: translateX(-50%);
   }
   .prize-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #999;
-    text-transform: uppercase;
-    margin-bottom: 4px;
+    font-size: 10px; letter-spacing: 2px; color: #999;
+    text-transform: uppercase; margin-bottom: 4px;
   }
-  .prize-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #111;
-  }
-  .prize-color {
-    font-size: 13px;
-    color: #f97316;
-  }
+  .prize-name { font-size: 18px; font-weight: 700; color: #111; }
+  .prize-color { font-size: 13px; color: #f97316; }
 
-  .dots {
-    display: flex;
-    gap: 6px;
-    margin: 16px 0 30px;
-  }
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #333;
-  }
+  .dots { display: flex; gap: 6px; margin: 16px 0 30px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #333; }
   .dot.active { background: #fff; }
 
   .btn-start {
     background: linear-gradient(135deg, #f97316, #ea580c);
-    color: #fff;
-    border: none;
-    padding: 16px 48px;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    letter-spacing: 1px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    color: #fff; border: none; padding: 16px 48px; border-radius: 40px;
+    font-size: 16px; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: 10px; letter-spacing: 1px;
     box-shadow: 0 4px 24px rgba(249, 115, 22, 0.4);
   }
   .btn-start:active { transform: scale(0.96); }
-  .btn-start .play-icon {
-    width: 0;
-    height: 0;
-    border-style: solid;
+  .play-icon {
+    width: 0; height: 0; border-style: solid;
     border-width: 6px 0 6px 10px;
     border-color: transparent transparent transparent #fff;
   }
 
-  /* ===== QUESTION SCREEN ===== */
+  /* ===== QUESTION ===== */
+  .question-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
   .question-badge {
-    background: #1a1a2e;
-    border: 1px solid #2a2a3e;
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 20px;
+    padding: 6px 16px; font-size: 11px; letter-spacing: 3px;
+    color: #888; text-transform: uppercase;
   }
-
+  .score-badge {
+    background: #0a2e1a; border: 1px solid #16a34a; border-radius: 20px;
+    padding: 6px 12px; font-size: 11px; color: #4ade80; font-weight: 600;
+  }
   .question-text {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.4;
-    margin-bottom: 24px;
-    max-width: 340px;
+    font-size: 20px; font-weight: 600; text-align: center;
+    line-height: 1.4; margin-bottom: 24px; max-width: 340px;
   }
-
   .timer-container {
-    position: relative;
-    width: 56px;
-    height: 56px;
-    margin-bottom: 4px;
+    position: relative; width: 56px; height: 56px; margin-bottom: 4px;
   }
-  .timer-ring {
-    transform: rotate(-90deg);
-  }
-  .timer-ring-bg {
-    fill: none;
-    stroke: #1a1a2e;
-    stroke-width: 3;
-  }
+  .timer-ring { transform: rotate(-90deg); }
+  .timer-ring-bg { fill: none; stroke: #1a1a2e; stroke-width: 3; }
   .timer-ring-progress {
-    fill: none;
-    stroke: #f97316;
-    stroke-width: 3;
-    stroke-linecap: round;
-    transition: stroke-dashoffset 1s linear;
+    fill: none; stroke: #f97316; stroke-width: 3;
+    stroke-linecap: round; transition: stroke-dashoffset 1s linear;
   }
   .timer-number {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
+    position: absolute; inset: 0; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 700;
   }
   .timer-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #666;
-    text-transform: uppercase;
-    margin-bottom: 40px;
+    font-size: 10px; letter-spacing: 2px; color: #666;
+    text-transform: uppercase; margin-bottom: 40px;
   }
-
-  .options {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
+  .options { width: 100%; display: flex; flex-direction: column; gap: 12px; }
   .option {
-    background: #12121e;
-    border: 1px solid #1e1e30;
-    border-radius: 14px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    cursor: pointer;
-    transition: all 0.3s;
+    background: #12121e; border: 1px solid #1e1e30; border-radius: 14px;
+    padding: 16px 20px; display: flex; align-items: center; gap: 14px;
+    cursor: pointer; transition: all 0.3s;
     -webkit-tap-highlight-color: transparent;
   }
   .option:active { transform: scale(0.98); }
   .option .letter {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #1a1a2e;
-    border: 1px solid #2a2a3e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: #888;
-    flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #1a1a2e; border: 1px solid #2a2a3e;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: #888; flex-shrink: 0;
   }
-  .option .text {
-    font-size: 15px;
-    color: #ccc;
-    line-height: 1.3;
-  }
-
-  .option.correct {
-    background: #0a2e1a;
-    border-color: #16a34a;
-  }
-  .option.correct .letter {
-    background: #16a34a;
-    border-color: #16a34a;
-    color: #fff;
-  }
+  .option .text { font-size: 15px; color: #ccc; line-height: 1.3; }
+  .option.correct { background: #0a2e1a; border-color: #16a34a; }
+  .option.correct .letter { background: #16a34a; border-color: #16a34a; color: #fff; }
   .option.correct .text { color: #fff; }
-
-  .option.wrong {
-    background: #2e0a0a;
-    border-color: #dc2626;
-  }
-  .option.wrong .letter {
-    background: #dc2626;
-    border-color: #dc2626;
-    color: #fff;
-  }
+  .option.wrong { background: #2e0a0a; border-color: #dc2626; }
+  .option.wrong .letter { background: #dc2626; border-color: #dc2626; color: #fff; }
   .option.wrong .text { color: #fff; }
-
   .option.disabled { pointer-events: none; }
 
-  /* ===== LEVEL COMPLETE SCREEN ===== */
-  .level-complete-icon {
-    font-size: 64px;
-    margin-bottom: 16px;
-  }
-  .level-complete-title {
-    font-size: 28px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .level-complete-xp {
-    font-size: 14px;
-    color: #f59e0b;
-    margin-bottom: 40px;
-  }
-  .btn-next {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: #fff;
-    border: none;
-    padding: 16px 48px;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 24px rgba(249, 115, 22, 0.4);
-  }
-  .btn-next:active { transform: scale(0.96); }
-
-  /* ===== GAME OVER ===== */
-  .gameover-icon {
-    font-size: 64px;
-    margin-bottom: 16px;
-  }
-  .gameover-title {
-    font-size: 26px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 8px;
-    color: #dc2626;
-  }
-  .gameover-sub {
-    font-size: 14px;
-    color: #888;
-    text-align: center;
-    margin-bottom: 32px;
-  }
-  .btn-retry {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: #fff;
-    border: none;
-    padding: 16px 48px;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 24px rgba(249, 115, 22, 0.4);
-  }
-  .btn-retry:active { transform: scale(0.96); }
-
-  /* ===== FINAL WIN ===== */
-  .final-icon {
-    font-size: 64px;
-    margin-bottom: 16px;
-  }
+  /* ===== FINAL ===== */
+  .final-icon { font-size: 64px; margin-bottom: 16px; }
   .final-title {
-    font-size: 28px;
-    font-weight: 800;
-    text-align: center;
+    font-size: 28px; font-weight: 800; text-align: center;
     margin-bottom: 8px;
-    color: #f59e0b;
   }
   .final-sub {
-    font-size: 14px;
-    color: #888;
-    text-align: center;
-    margin-bottom: 8px;
+    font-size: 16px; color: #888; text-align: center; margin-bottom: 8px;
   }
-  .final-xp {
-    font-size: 18px;
-    font-weight: 700;
-    color: #f59e0b;
-    margin-bottom: 32px;
+  .final-score {
+    font-size: 48px; font-weight: 900; margin: 16px 0;
+  }
+  .final-label {
+    font-size: 14px; color: #888; margin-bottom: 24px;
+  }
+  .result-bar-container {
+    width: 100%; height: 12px; background: #1a1a2e;
+    border-radius: 6px; margin-bottom: 32px; overflow: hidden;
+  }
+  .result-bar {
+    height: 100%; border-radius: 6px;
+    transition: width 1.5s ease;
   }
   .btn-share {
     background: linear-gradient(135deg, #f97316, #ea580c);
-    color: #fff;
-    border: none;
-    padding: 16px 48px;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 24px rgba(249, 115, 22, 0.4);
+    color: #fff; border: none; padding: 16px 48px; border-radius: 40px;
+    font-size: 16px; font-weight: 700; cursor: pointer;
+    letter-spacing: 1px; box-shadow: 0 4px 24px rgba(249, 115, 22, 0.4);
     margin-bottom: 16px;
   }
   .btn-share:active { transform: scale(0.96); }
+  .btn-retry {
+    background: transparent; color: #888; border: 1px solid #333;
+    padding: 14px 40px; border-radius: 40px; font-size: 14px;
+    font-weight: 600; cursor: pointer;
+  }
+  .btn-retry:active { transform: scale(0.96); }
 
   /* ===== CONFETTI ===== */
   .confetti-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 100;
-    overflow: hidden;
+    position: fixed; inset: 0; pointer-events: none;
+    z-index: 100; overflow: hidden;
   }
   .confetti-piece {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    top: -10px;
+    position: absolute; width: 8px; height: 8px; top: -10px;
     animation: confettiFall 3s ease-in forwards;
   }
   @keyframes confettiFall {
@@ -429,19 +219,13 @@
 
   /* ===== PROGRESS BAR ===== */
   .progress-bar-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #1a1a2e;
-    z-index: 50;
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 4px; background: #1a1a2e; z-index: 50;
   }
   .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, #f97316, #f59e0b);
-    transition: width 0.5s ease;
-    border-radius: 0 2px 2px 0;
+    transition: width 0.5s ease; border-radius: 0 2px 2px 0;
   }
 </style>
 </head>
@@ -461,7 +245,7 @@
       <span class="line2">ЛИ ТЫ</span>
       <span class="line3">БУЛОЧКУ?</span>
     </div>
-    <div class="welcome-meta">5 уровней · 1 правильный путь · 1 большой приз</div>
+    <div class="welcome-meta">50 вопросов · 1 правильный путь · 1 большой приз</div>
     <div class="prize-card">
       <div class="prize-phone-placeholder"></div>
       <div class="prize-label">ГЛАВНЫЙ ПРИЗ</div>
@@ -469,11 +253,7 @@
       <div class="prize-color">Desert Orange 🧡</div>
     </div>
     <div class="dots">
-      <div class="dot active"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
     </div>
     <button class="btn-start" onclick="startGame()">
       <div class="play-icon"></div>
@@ -483,14 +263,16 @@
 
   <!-- QUESTION -->
   <div class="screen" id="questionScreen">
-    <div class="question-badge" id="questionBadge">ВОПРОС 1</div>
+    <div class="question-header">
+      <div class="question-badge" id="questionBadge">ВОПРОС 1</div>
+      <div class="score-badge" id="scoreBadge">✓ 0</div>
+    </div>
     <div class="question-text" id="questionText"></div>
     <div class="timer-container">
       <svg class="timer-ring" width="56" height="56" viewBox="0 0 56 56">
         <circle class="timer-ring-bg" cx="28" cy="28" r="24"/>
         <circle class="timer-ring-progress" id="timerRing" cx="28" cy="28" r="24"
-          stroke-dasharray="150.8"
-          stroke-dashoffset="0"/>
+          stroke-dasharray="150.8" stroke-dashoffset="0"/>
       </svg>
       <div class="timer-number" id="timerNumber">15</div>
     </div>
@@ -498,28 +280,16 @@
     <div class="options" id="optionsContainer"></div>
   </div>
 
-  <!-- LEVEL COMPLETE -->
-  <div class="screen" id="levelCompleteScreen">
-    <div class="level-complete-icon">🔥</div>
-    <div class="level-complete-title">УРОВЕНЬ ПРОЙДЕН!</div>
-    <div class="level-complete-xp" id="xpDisplay">+100 XP · Всего: 100 XP</div>
-    <button class="btn-next" id="btnNext" onclick="nextLevel()">УРОВЕНЬ 2 →</button>
-  </div>
-
-  <!-- GAME OVER -->
-  <div class="screen" id="gameOverScreen">
-    <div class="gameover-icon">💔</div>
-    <div class="gameover-title">НЕПРАВИЛЬНО!</div>
-    <div class="gameover-sub">Ты не знаешь Булочку... пока что 😏</div>
-    <button class="btn-retry" onclick="restartGame()">ПОПРОБОВАТЬ СНОВА</button>
-  </div>
-
-  <!-- FINAL WIN -->
+  <!-- FINAL -->
   <div class="screen" id="finalScreen">
-    <div class="final-icon">🏆</div>
-    <div class="final-title">ТЫ ЗНАЕШЬ БУЛОЧКУ!</div>
-    <div class="final-sub">Все 5 уровней пройдены!</div>
-    <div class="final-xp" id="finalXp">500 XP</div>
+    <div class="final-icon" id="finalIcon">🏆</div>
+    <div class="final-title" id="finalTitle"></div>
+    <div class="final-sub" id="finalSub"></div>
+    <div class="final-score" id="finalScore"></div>
+    <div class="final-label">правильных из 50</div>
+    <div class="result-bar-container">
+      <div class="result-bar" id="resultBar" style="width: 0%"></div>
+    </div>
     <button class="btn-share" onclick="shareResult()">ПОДЕЛИТЬСЯ 🎉</button>
     <button class="btn-retry" onclick="restartGame()">ПРОЙТИ ЕЩЁ РАЗ</button>
   </div>
@@ -569,13 +339,372 @@ const questions = [
       { letter: "B", text: "Он реально приготовит шедевр", correct: false },
       { letter: "C", text: "Закажет доставку и скажет «я старался»", correct: false }
     ]
+  },
+  {
+    text: "Булочка выбирает фильм на вечер. Что это будет?",
+    options: [
+      { letter: "A", text: "Боевик с Джейсоном Стэтхемом 💥", correct: true },
+      { letter: "B", text: "Романтическая комедия", correct: false },
+      { letter: "C", text: "Документалка про космос", correct: false }
+    ]
+  },
+  {
+    text: "Булочка говорит «я буду через 5 минут». Сколько ждать реально?",
+    options: [
+      { letter: "A", text: "5 минут, он точный ⏰", correct: false },
+      { letter: "B", text: "Минимум 20 минут", correct: true },
+      { letter: "C", text: "Лучше не засекать", correct: false }
+    ]
+  },
+  {
+    text: "Булочка заходит в магазин «на минутку». Он купит:",
+    options: [
+      { letter: "A", text: "Только хлеб, как и планировал", correct: false },
+      { letter: "B", text: "Полную тележку + «оно само в корзину упало»", correct: true },
+      { letter: "C", text: "Ничего — забудет зачем пришёл", correct: false }
+    ]
+  },
+  {
+    text: "Булочка на диете. Что он ест в полночь?",
+    options: [
+      { letter: "A", text: "Ничего, сила воли железная 💪", correct: false },
+      { letter: "B", text: "«Это же не еда, это перекус»", correct: true },
+      { letter: "C", text: "Целый холодильник", correct: false }
+    ]
+  },
+  {
+    text: "Булочка потерял ключи. Его первая реакция:",
+    options: [
+      { letter: "A", text: "Спокойно проверит карманы 🧘", correct: false },
+      { letter: "B", text: "«Кто трогал мои ключи?!»", correct: true },
+      { letter: "C", text: "Вызовет слесаря сразу", correct: false }
+    ]
+  },
+  {
+    text: "Какой будильник ставит Булочка?",
+    options: [
+      { letter: "A", text: "Один, и встаёт с первого раза", correct: false },
+      { letter: "B", text: "5 штук с разницей в 3 минуты", correct: true },
+      { letter: "C", text: "Не ставит — просыпается сам", correct: false }
+    ]
+  },
+  {
+    text: "Булочка собирается в отпуск. Чемодан он пакует:",
+    options: [
+      { letter: "A", text: "За неделю, по списку", correct: false },
+      { letter: "B", text: "За 15 минут до выхода 🏃", correct: true },
+      { letter: "C", text: "Просит тебя собрать", correct: false }
+    ]
+  },
+  {
+    text: "Булочка говорит «мне ничего не надо на день рождения». Это значит:",
+    options: [
+      { letter: "A", text: "Реально ничего не надо", correct: false },
+      { letter: "B", text: "Надо, но он хочет сюрприз 🎁", correct: true },
+      { letter: "C", text: "Он забыл что скоро ДР", correct: false }
+    ]
+  },
+  {
+    text: "Булочка за рулём. Навигатор говорит «поверните направо». Он:",
+    options: [
+      { letter: "A", text: "Повернёт направо", correct: false },
+      { letter: "B", text: "«Я знаю короткий путь» 🗺️", correct: true },
+      { letter: "C", text: "Проедет мимо и развернётся", correct: false }
+    ]
+  },
+  {
+    text: "Булочка смотрит футбол. Ты заговорила. Он:",
+    options: [
+      { letter: "A", text: "Ставит на паузу и слушает", correct: false },
+      { letter: "B", text: "«Угу... да... конечно...»", correct: true },
+      { letter: "C", text: "Не слышит вообще", correct: false }
+    ]
+  },
+  {
+    text: "Булочка делает комплимент. Как это звучит?",
+    options: [
+      { letter: "A", text: "«Ты сегодня красивая» 🌹", correct: false },
+      { letter: "B", text: "«Нормально выглядишь» (это максимум)", correct: false },
+      { letter: "C", text: "«Ого, ну ты вообще!» 😍", correct: true }
+    ]
+  },
+  {
+    text: "Булочка заболел. Температура 37.1. Его поведение:",
+    options: [
+      { letter: "A", text: "«Я умираю, пиши завещание» 🤒", correct: true },
+      { letter: "B", text: "Молча пьёт чай и отдыхает", correct: false },
+      { letter: "C", text: "Идёт на работу как ни в чём не бывало", correct: false }
+    ]
+  },
+  {
+    text: "Что Булочка делает, когда ты плачешь?",
+    options: [
+      { letter: "A", text: "Обнимает и молчит 🤗", correct: true },
+      { letter: "B", text: "Пытается решить проблему", correct: false },
+      { letter: "C", text: "Паникует больше тебя", correct: false }
+    ]
+  },
+  {
+    text: "Булочка в IKEA. Сколько времени вы там проведёте?",
+    options: [
+      { letter: "A", text: "20 минут — зашёл, купил, вышел", correct: false },
+      { letter: "B", text: "3 часа минимум + хотдог на выходе 🌭", correct: true },
+      { letter: "C", text: "Он откажется заходить", correct: false }
+    ]
+  },
+  {
+    text: "Булочка выбирает подарок тебе. Его стратегия:",
+    options: [
+      { letter: "A", text: "Спросит у подруг", correct: false },
+      { letter: "B", text: "Вспомнит что ты хотела 3 месяца назад 🧠", correct: true },
+      { letter: "C", text: "Купит сертификат", correct: false }
+    ]
+  },
+  {
+    text: "Булочка и паук в ванной. Его реакция:",
+    options: [
+      { letter: "A", text: "Спокойно выносит на улицу 🕷️", correct: false },
+      { letter: "B", text: "Зовёт тебя на помощь", correct: false },
+      { letter: "C", text: "Героически побеждает, но потом расскажет об этом 10 раз", correct: true }
+    ]
+  },
+  {
+    text: "Как Булочка реагирует на «нам надо поговорить о наших отношениях»?",
+    options: [
+      { letter: "A", text: "Садится и внимательно слушает", correct: false },
+      { letter: "B", text: "Внутренне паникует, внешне спокоен 😐", correct: true },
+      { letter: "C", text: "«А что случилось?!»", correct: false }
+    ]
+  },
+  {
+    text: "Булочка моет посуду. Как он это делает?",
+    options: [
+      { letter: "A", text: "Тщательно, каждую тарелочку", correct: false },
+      { letter: "B", text: "Быстро, но потом ты перемываешь 😅", correct: true },
+      { letter: "C", text: "Включает посудомойку и говорит «готово»", correct: false }
+    ]
+  },
+  {
+    text: "Булочка видит милую собаку на улице. Он:",
+    options: [
+      { letter: "A", text: "Проходит мимо", correct: false },
+      { letter: "B", text: "«СОБАКААА!» и бежит гладить 🐕", correct: true },
+      { letter: "C", text: "Фотографирует издалека", correct: false }
+    ]
+  },
+  {
+    text: "Что Булочка делает перед сном?",
+    options: [
+      { letter: "A", text: "Читает книгу 📖", correct: false },
+      { letter: "B", text: "Листает телефон «ещё 5 минут» (= час)", correct: true },
+      { letter: "C", text: "Сразу засыпает", correct: false }
+    ]
+  },
+  {
+    text: "Булочка в ресторане. Как он выбирает блюдо?",
+    options: [
+      { letter: "A", text: "За 30 секунд — всегда одно и то же", correct: false },
+      { letter: "B", text: "Изучает всё меню, потом берёт привычное 📋", correct: true },
+      { letter: "C", text: "«Мне то же, что и ей»", correct: false }
+    ]
+  },
+  {
+    text: "Булочка забыл про годовщину. Как он выкрутится?",
+    options: [
+      { letter: "A", text: "«Я готовил сюрприз, просто позже!» 🎭", correct: true },
+      { letter: "B", text: "Честно признается", correct: false },
+      { letter: "C", text: "Сделает вид что не забыл и побежит за цветами", correct: false }
+    ]
+  },
+  {
+    text: "Какая фраза Булочки звучит чаще всего?",
+    options: [
+      { letter: "A", text: "«Я люблю тебя» ❤️", correct: false },
+      { letter: "B", text: "«А что на ужин?»", correct: true },
+      { letter: "C", text: "«Сейчас, подожди минутку»", correct: false }
+    ]
+  },
+  {
+    text: "Булочка убирается дома. Что значит «убрался»?",
+    options: [
+      { letter: "A", text: "Реально чисто, можно есть с пола", correct: false },
+      { letter: "B", text: "Разбросал вещи в другой конфигурации 🔄", correct: true },
+      { letter: "C", text: "Пропылесосил одну комнату", correct: false }
+    ]
+  },
+  {
+    text: "Булочка и сборка мебели из IKEA. Инструкция?",
+    options: [
+      { letter: "A", text: "Внимательно читает каждый шаг", correct: false },
+      { letter: "B", text: "«Я и без инструкции разберусь» 🔧", correct: true },
+      { letter: "C", text: "Вызывает мастера", correct: false }
+    ]
+  },
+  {
+    text: "Булочка танцует. Как это выглядит?",
+    options: [
+      { letter: "A", text: "Грациозно и ритмично 💃", correct: false },
+      { letter: "B", text: "Смешно, но он уверен что огонь 🔥", correct: true },
+      { letter: "C", text: "Он не танцует никогда", correct: false }
+    ]
+  },
+  {
+    text: "Ты просишь Булочку сфотографировать тебя. Результат:",
+    options: [
+      { letter: "A", text: "Шедевр с первого раза 📸", correct: false },
+      { letter: "B", text: "50 одинаковых фото, ни одно не подходит", correct: true },
+      { letter: "C", text: "Случайно снял видео", correct: false }
+    ]
+  },
+  {
+    text: "Булочка в спортзале. Его мотивация:",
+    options: [
+      { letter: "A", text: "Здоровый образ жизни 🏋️", correct: false },
+      { letter: "B", text: "Фото для сторис", correct: false },
+      { letter: "C", text: "Чтобы потом без чувства вины съесть бургер", correct: true }
+    ]
+  },
+  {
+    text: "Булочка выбирает что надеть. Это займёт:",
+    options: [
+      { letter: "A", text: "2 минуты — джинсы и футболка", correct: true },
+      { letter: "B", text: "Полчаса — как на подиум", correct: false },
+      { letter: "C", text: "Попросит тебя выбрать", correct: false }
+    ]
+  },
+  {
+    text: "Что Булочка скажет после твоей новой причёски?",
+    options: [
+      { letter: "A", text: "«Вау, тебе очень идёт!»", correct: false },
+      { letter: "B", text: "Не заметит 😶", correct: true },
+      { letter: "C", text: "«А что изменилось?»", correct: false }
+    ]
+  },
+  {
+    text: "Булочка на отдыхе у моря. Первым делом он:",
+    options: [
+      { letter: "A", text: "Бежит в воду 🏊", correct: true },
+      { letter: "B", text: "Ищет лучший лежак", correct: false },
+      { letter: "C", text: "Фоткает всё вокруг", correct: false }
+    ]
+  },
+  {
+    text: "Булочка и карта города. Он:",
+    options: [
+      { letter: "A", text: "Ориентируется как навигатор 🧭", correct: false },
+      { letter: "B", text: "Держит карту вверх ногами и уверен в себе", correct: true },
+      { letter: "C", text: "Спрашивает прохожих", correct: false }
+    ]
+  },
+  {
+    text: "Булочка смотрит грустный фильм. Он плачет?",
+    options: [
+      { letter: "A", text: "Нет, он же мужик 😤", correct: false },
+      { letter: "B", text: "Тихонько, чтобы ты не заметила 🥲", correct: true },
+      { letter: "C", text: "Рыдает в голос", correct: false }
+    ]
+  },
+  {
+    text: "Булочка планирует романтический вечер. Это будет:",
+    options: [
+      { letter: "A", text: "Ресторан, свечи, цветы 🌹", correct: false },
+      { letter: "B", text: "Пицца, сериал и обнимашки на диване", correct: true },
+      { letter: "C", text: "Он забудет запланировать", correct: false }
+    ]
+  },
+  {
+    text: "Какой суперсилой обладал бы Булочка?",
+    options: [
+      { letter: "A", text: "Невидимость", correct: false },
+      { letter: "B", text: "Находить еду в любой ситуации 🍕", correct: true },
+      { letter: "C", text: "Летать", correct: false }
+    ]
+  },
+  {
+    text: "Булочка и твоя мама. Его стратегия:",
+    options: [
+      { letter: "A", text: "Идеальный зять — комплименты и улыбка 😇", correct: true },
+      { letter: "B", text: "Прячется в телефоне", correct: false },
+      { letter: "C", text: "Спорит на каждую тему", correct: false }
+    ]
+  },
+  {
+    text: "Булочка покупает технику. Он:",
+    options: [
+      { letter: "A", text: "Берёт первую попавшуюся", correct: false },
+      { letter: "B", text: "Две недели читает обзоры и сравнивает 📊", correct: true },
+      { letter: "C", text: "Покупает самое дорогое", correct: false }
+    ]
+  },
+  {
+    text: "Где Булочка через 5 минут после «я лёг спать»?",
+    options: [
+      { letter: "A", text: "Спит крепким сном 😴", correct: false },
+      { letter: "B", text: "Смотрит YouTube в кровати", correct: true },
+      { letter: "C", text: "Пошёл за водой на кухню", correct: false }
+    ]
+  },
+  {
+    text: "Булочка готовит завтрак. Что на столе?",
+    options: [
+      { letter: "A", text: "Красивая яичница и тосты 🍳", correct: false },
+      { letter: "B", text: "Хлопья с молоком", correct: true },
+      { letter: "C", text: "Бутерброд с колбасой", correct: false }
+    ]
+  },
+  {
+    text: "Ты спрашиваешь Булочку «О чём ты думаешь?». Ответ:",
+    options: [
+      { letter: "A", text: "«О тебе, конечно» ❤️", correct: false },
+      { letter: "B", text: "«Ни о чём» (и это правда)", correct: true },
+      { letter: "C", text: "Философская речь на 10 минут", correct: false }
+    ]
+  },
+  {
+    text: "Булочка и очередь. Его терпение:",
+    options: [
+      { letter: "A", text: "Ждёт спокойно, как буддист", correct: false },
+      { letter: "B", text: "Через 2 минуты: «может в другое место?» 😩", correct: true },
+      { letter: "C", text: "Пролезет без очереди", correct: false }
+    ]
+  },
+  {
+    text: "Булочка играет в настольную игру. Он:",
+    options: [
+      { letter: "A", text: "Играет ради веселья 🎲", correct: false },
+      { letter: "B", text: "Играет НА ПОБЕДУ, проигрывать не умеет", correct: true },
+      { letter: "C", text: "Засыпает на третьем ходу", correct: false }
+    ]
+  },
+  {
+    text: "Булочка увидел твою фотку 10 лет назад. Реакция:",
+    options: [
+      { letter: "A", text: "«Какая ты была милая» 🥰", correct: true },
+      { letter: "B", text: "«Это реально ты?!»", correct: false },
+      { letter: "C", text: "Молча листает дальше", correct: false }
+    ]
+  },
+  {
+    text: "Как Булочка ведёт себя, когда ты за рулём?",
+    options: [
+      { letter: "A", text: "Доверяет полностью 🧘", correct: false },
+      { letter: "B", text: "Держится за ручку и тихо комментирует", correct: true },
+      { letter: "C", text: "«Давай лучше я поведу»", correct: false }
+    ]
+  },
+  {
+    text: "Булочка на вечеринке. Через час он:",
+    options: [
+      { letter: "A", text: "Душа компании 🎤", correct: false },
+      { letter: "B", text: "Гладит чью-то собаку в углу", correct: false },
+      { letter: "C", text: "«Ну что, может домой?» 🏠", correct: true }
+    ]
   }
 ];
 
 let currentQuestion = 0;
-let xp = 0;
+let correctCount = 0;
 let timerInterval = null;
-let timeLeft = 15;
 
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -583,13 +712,13 @@ function showScreen(id) {
 }
 
 function updateProgress() {
-  const pct = (currentQuestion / questions.length) * 100;
-  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressBar').style.width =
+    ((currentQuestion / questions.length) * 100) + '%';
 }
 
 function startGame() {
   currentQuestion = 0;
-  xp = 0;
+  correctCount = 0;
   updateProgress();
   showQuestion();
 }
@@ -597,6 +726,7 @@ function startGame() {
 function showQuestion() {
   const q = questions[currentQuestion];
   document.getElementById('questionBadge').textContent = `ВОПРОС ${currentQuestion + 1}`;
+  document.getElementById('scoreBadge').textContent = `✓ ${correctCount}`;
   document.getElementById('questionText').textContent = q.text;
 
   const container = document.getElementById('optionsContainer');
@@ -614,42 +744,37 @@ function showQuestion() {
 }
 
 function startTimer() {
-  timeLeft = 15;
+  let timeLeft = 15;
   const ring = document.getElementById('timerRing');
   const circumference = 150.8;
   ring.style.transition = 'none';
   ring.style.strokeDashoffset = '0';
+  ring.style.stroke = '#f97316';
   document.getElementById('timerNumber').textContent = timeLeft;
 
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     timeLeft--;
     document.getElementById('timerNumber').textContent = timeLeft;
-    const offset = circumference * (1 - timeLeft / 15);
     ring.style.transition = 'stroke-dashoffset 1s linear';
-    ring.style.strokeDashoffset = offset;
-
-    if (timeLeft <= 5) {
-      ring.style.stroke = '#dc2626';
-    } else {
-      ring.style.stroke = '#f97316';
-    }
+    ring.style.strokeDashoffset = circumference * (1 - timeLeft / 15);
+    if (timeLeft <= 5) ring.style.stroke = '#dc2626';
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      timeUp();
+      handleTimeout();
     }
   }, 1000);
 }
 
-function timeUp() {
-  const options = document.querySelectorAll('.option');
+function handleTimeout() {
   const q = questions[currentQuestion];
+  const options = document.querySelectorAll('.option');
   options.forEach((opt, i) => {
     opt.classList.add('disabled');
     if (q.options[i].correct) opt.classList.add('correct');
   });
-  setTimeout(() => showScreen('gameOverScreen'), 1500);
+  setTimeout(advance, 1200);
 }
 
 function selectOption(index) {
@@ -662,70 +787,88 @@ function selectOption(index) {
     if (q.options[i].correct) opt.classList.add('correct');
   });
 
-  if (!q.options[index].correct) {
+  if (q.options[index].correct) {
+    correctCount++;
+  } else {
     options[index].classList.add('wrong');
-    setTimeout(() => showScreen('gameOverScreen'), 1500);
-    return;
   }
 
-  xp += 100;
+  setTimeout(advance, 1200);
+}
+
+function advance() {
   currentQuestion++;
   updateProgress();
 
   if (currentQuestion >= questions.length) {
-    setTimeout(() => {
-      document.getElementById('progressBar').style.width = '100%';
-      document.getElementById('finalXp').textContent = xp + ' XP';
-      showScreen('finalScreen');
-      spawnConfetti();
-    }, 1000);
+    showFinal();
   } else {
-    setTimeout(() => {
-      document.getElementById('xpDisplay').textContent = `+100 XP · Всего: ${xp} XP`;
-      document.getElementById('btnNext').textContent = `УРОВЕНЬ ${currentQuestion + 1} →`;
-      showScreen('levelCompleteScreen');
-      spawnConfetti();
-    }, 1000);
+    showQuestion();
   }
 }
 
-function nextLevel() {
-  showQuestion();
+function showFinal() {
+  document.getElementById('progressBar').style.width = '100%';
+  const pct = Math.round((correctCount / questions.length) * 100);
+
+  let icon, title, color;
+  if (pct >= 80) {
+    icon = '🏆'; title = 'ТЫ ЗНАЕШЬ БУЛОЧКУ!'; color = '#16a34a';
+  } else if (pct >= 50) {
+    icon = '😏'; title = 'НЕПЛОХО, НО МОЖНО ЛУЧШЕ'; color = '#f59e0b';
+  } else {
+    icon = '😅'; title = 'ТЫ НЕ ЗНАЕШЬ БУЛОЧКУ...'; color = '#dc2626';
+  }
+
+  document.getElementById('finalIcon').textContent = icon;
+  document.getElementById('finalTitle').textContent = title;
+  document.getElementById('finalTitle').style.color = color;
+  document.getElementById('finalSub').textContent = `${pct}% правильных ответов`;
+  document.getElementById('finalScore').textContent = `${correctCount} / ${questions.length}`;
+  document.getElementById('finalScore').style.color = color;
+
+  showScreen('finalScreen');
+  setTimeout(() => {
+    document.getElementById('resultBar').style.width = pct + '%';
+    document.getElementById('resultBar').style.background =
+      `linear-gradient(90deg, ${color}, ${color}88)`;
+  }, 100);
+  if (pct >= 50) spawnConfetti();
 }
 
 function restartGame() {
   document.getElementById('progressBar').style.width = '0%';
+  document.getElementById('resultBar').style.width = '0%';
   startGame();
 }
 
 function shareResult() {
-  const text = `🏆 Я прошёл квиз "Знаешь ли ты Булочку?" и набрал ${xp} XP!\nПопробуй тоже!`;
+  const pct = Math.round((correctCount / questions.length) * 100);
+  const text = `Я прошёл квиз "Знаешь ли ты Булочку?" — ${correctCount}/${questions.length} (${pct}%)! Попробуй тоже: ${location.href}`;
   if (navigator.share) {
     navigator.share({ title: 'Квиз: Знаешь ли ты Булочку?', text });
   } else {
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Скопировано в буфер обмена!');
-    });
+    navigator.clipboard.writeText(text).then(() => alert('Скопировано!'));
   }
 }
 
 function spawnConfetti() {
-  const container = document.getElementById('confettiContainer');
-  container.innerHTML = '';
-  const colors = ['#f97316', '#f59e0b', '#ef4444', '#8b5cf6', '#3b82f6', '#10b981', '#ec4899'];
-  for (let i = 0; i < 60; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    piece.style.left = Math.random() * 100 + '%';
-    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.animationDelay = Math.random() * 0.5 + 's';
-    piece.style.animationDuration = (2 + Math.random() * 2) + 's';
-    piece.style.width = (4 + Math.random() * 6) + 'px';
-    piece.style.height = (4 + Math.random() * 6) + 'px';
-    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-    container.appendChild(piece);
+  const c = document.getElementById('confettiContainer');
+  c.innerHTML = '';
+  const colors = ['#f97316','#f59e0b','#ef4444','#8b5cf6','#3b82f6','#10b981','#ec4899'];
+  for (let i = 0; i < 80; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    p.style.left = Math.random()*100+'%';
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
+    p.style.animationDelay = Math.random()*0.8+'s';
+    p.style.animationDuration = (2+Math.random()*2)+'s';
+    p.style.width = (4+Math.random()*6)+'px';
+    p.style.height = (4+Math.random()*6)+'px';
+    p.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    c.appendChild(p);
   }
-  setTimeout(() => container.innerHTML = '', 4000);
+  setTimeout(() => c.innerHTML='', 4000);
 }
 </script>
 
