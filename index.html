@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Специальный Квиз 2025</title>
+<title>Квиз ко Дню Рождения Бусинки</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
@@ -72,15 +72,8 @@
     margin-bottom: 10px; display: flex; flex-direction: column;
     align-items: center; width: 200px;
   }
-  .prize-phone-placeholder {
-    width: 100px; height: 140px;
-    background: linear-gradient(135deg, #f97316, #fb923c);
-    border-radius: 16px; margin-bottom: 12px; position: relative;
-  }
-  .prize-phone-placeholder::after {
-    content: ''; width: 30px; height: 30px; border-radius: 50%;
-    background: rgba(255,255,255,0.3); position: absolute;
-    top: 20px; left: 50%; transform: translateX(-50%);
+  .prize-island {
+    font-size: 72px; margin-bottom: 12px;
   }
   .prize-label {
     font-size: 10px; letter-spacing: 2px; color: #999;
@@ -89,6 +82,11 @@
   .prize-name { font-size: 18px; font-weight: 700; color: #111; }
   .prize-color { font-size: 13px; color: #f97316; }
 
+  .bonus-hint {
+    font-size: 13px; color: #f59e0b; margin: 12px 0 8px;
+    background: #1a1a0a; border: 1px solid #f59e0b33;
+    padding: 8px 16px; border-radius: 12px;
+  }
   .dots { display: flex; gap: 6px; margin: 16px 0 30px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: #333; }
   .dot.active { background: #fff; }
@@ -188,6 +186,15 @@
     height: 100%; border-radius: 6px;
     transition: width 1.5s ease;
   }
+  .bonus-result {
+    background: linear-gradient(135deg, #f59e0b22, #f9731622);
+    border: 1px solid #f59e0b;
+    border-radius: 16px; padding: 16px 24px;
+    text-align: center; margin-bottom: 24px;
+    font-size: 15px; font-weight: 600; color: #f59e0b;
+    line-height: 1.5; display: none;
+  }
+  .bonus-result.visible { display: block; animation: fadeIn 0.5s ease; }
   .btn-share {
     background: linear-gradient(135deg, #f97316, #ea580c);
     color: #fff; border: none; padding: 16px 48px; border-radius: 40px;
@@ -239,7 +246,7 @@
 
   <!-- WELCOME -->
   <div class="screen active" id="welcomeScreen">
-    <div class="welcome-subtitle">СПЕЦИАЛЬНЫЙ КВИЗ · 2025</div>
+    <div class="welcome-subtitle">КВИЗ КО ДНЮ РОЖДЕНИЯ БУСИНКИ</div>
     <div class="welcome-title">
       <span class="line1">ЗНАЕШЬ</span>
       <span class="line2">ЛИ ТЫ</span>
@@ -247,11 +254,12 @@
     </div>
     <div class="welcome-meta">50 вопросов · 1 правильный путь · 1 большой приз</div>
     <div class="prize-card">
-      <div class="prize-phone-placeholder"></div>
+      <div class="prize-island">🏝️</div>
       <div class="prize-label">ГЛАВНЫЙ ПРИЗ</div>
-      <div class="prize-name">iPhone 17</div>
-      <div class="prize-color">Desert Orange 🧡</div>
+      <div class="prize-name">Поездка</div>
+      <div class="prize-color">На остров мечты 🌊</div>
     </div>
+    <div class="bonus-hint">40+ правильных = бонусный приз 🎁</div>
     <div class="dots">
       <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
     </div>
@@ -290,6 +298,7 @@
     <div class="result-bar-container">
       <div class="result-bar" id="resultBar" style="width: 0%"></div>
     </div>
+    <div class="bonus-result" id="bonusResult"></div>
     <button class="btn-share" onclick="shareResult()">ПОДЕЛИТЬСЯ 🎉</button>
     <button class="btn-retry" onclick="restartGame()">ПРОЙТИ ЕЩЁ РАЗ</button>
   </div>
@@ -812,7 +821,7 @@ function showFinal() {
   const pct = Math.round((correctCount / questions.length) * 100);
 
   let icon, title, color;
-  if (pct >= 80) {
+  if (correctCount >= 40) {
     icon = '🏆'; title = 'ТЫ ЗНАЕШЬ БУЛОЧКУ!'; color = '#16a34a';
   } else if (pct >= 50) {
     icon = '😏'; title = 'НЕПЛОХО, НО МОЖНО ЛУЧШЕ'; color = '#f59e0b';
@@ -827,13 +836,22 @@ function showFinal() {
   document.getElementById('finalScore').textContent = `${correctCount} / ${questions.length}`;
   document.getElementById('finalScore').style.color = color;
 
+  const bonus = document.getElementById('bonusResult');
+  if (correctCount >= 40) {
+    bonus.innerHTML = '🎁 Поздравляем! Ты набрал 40+!<br>Тебя ждёт <b>бонусный приз</b>! 🎉';
+    bonus.classList.add('visible');
+  } else {
+    bonus.classList.remove('visible');
+  }
+
   showScreen('finalScreen');
   setTimeout(() => {
     document.getElementById('resultBar').style.width = pct + '%';
     document.getElementById('resultBar').style.background =
       `linear-gradient(90deg, ${color}, ${color}88)`;
   }, 100);
-  if (pct >= 50) spawnConfetti();
+  if (correctCount >= 40) spawnConfetti();
+  else if (pct >= 50) spawnConfetti();
 }
 
 function restartGame() {
@@ -844,9 +862,9 @@ function restartGame() {
 
 function shareResult() {
   const pct = Math.round((correctCount / questions.length) * 100);
-  const text = `Я прошёл квиз "Знаешь ли ты Булочку?" — ${correctCount}/${questions.length} (${pct}%)! Попробуй тоже: ${location.href}`;
+  const text = `🎂 Квиз ко Дню Рождения Бусинки — ${correctCount}/${questions.length} (${pct}%)! Попробуй тоже: ${location.href}`;
   if (navigator.share) {
-    navigator.share({ title: 'Квиз: Знаешь ли ты Булочку?', text });
+    navigator.share({ title: 'Квиз ко Дню Рождения Бусинки', text });
   } else {
     navigator.clipboard.writeText(text).then(() => alert('Скопировано!'));
   }
